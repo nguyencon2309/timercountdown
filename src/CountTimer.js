@@ -241,7 +241,7 @@ const CountTimer = ({ tt }) => {
                                         setMinutes(editValue[1]);
                                         setSeconds(editValue[2]);
                                         setEdit(!edit)
-                                        localStorage.setItem('arr', JSON.stringify(arr))
+                                        localStorage.setItem('arr', JSON.stringify(editValue))
                                     }
                                     }>Done</button>
                             </div>
