@@ -1,0 +1,175 @@
+.counttimer{
+    margin:40px 0 10px 0;
+    
+    font-size: 18px;
+
+}
+.f1-row{
+    margin-bottom:20px ;
+}
+
+.f1-row span{
+    margin:0 24px 0 0;
+    line-height: 64px;
+    font-size: 48px;
+}
+.f1-row button{
+    margin:0 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 64px;
+    outline: 0;
+    text-align: center;
+    width: 64px;
+    justify-content: center;
+    background-color: #17a69d;
+    border:0;
+}
+.f1-row:after{
+    content: " ";
+    display:block;
+    clear: both;
+}
+
+.f2-row{
+    margin-bottom: 20px;
+}
+
+
+.form_edit_1part3{
+    float:left;
+}
+.input_bl{
+    display: block;
+}
+
+.clear_both{
+    clear:both;
+}
+.z_index_form{
+    z-index: 2;
+}
+.modal_form{
+    z-index: 10;
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    background:rgba(0,0,0,0.4) ;
+    align-items: center;
+    justify-content: center;
+}
+.modal_container{
+    margin:100px auto;
+    background-color: #fff;
+    width: 400px;
+    
+    box-sizing:border-box ;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    position: relative;
+}
+.modal-header{
+    background: #4387d0;
+    
+    padding: 15px;
+
+}
+.modal-title{
+    margin:0;
+}
+.close-modal-btn{
+    position: absolute;
+    top:-3px;
+    right:6px;
+    background:none;
+    font-size: 31px;
+    border: 0;
+    padding:0;
+}
+.modal-body{
+    padding:20px;
+}
+.modal-body > div{
+    margin-bottom: 12px;
+}
+.modal-body > *:after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+.modal-body label{
+    font-weight: 700;
+}
+
+
+.modal-body input:focus{
+   
+    outline: none;
+}
+.modal-body-row1{
+    font-size: 14px;
+    
+}
+
+.modal-body-row1 > *{
+    
+    float:left;
+}
+.modal-body-row1 *{
+    font-size: 18px;
+    
+}
+.modal-body-row1 label{
+    font-weight: 700;
+    display: block;
+}
+.modal-body-row1 > span {
+    margin: 0 7px;
+    line-height: 2em;
+}
+.modal-body-row1 input {
+    width: 70px;
+    padding:0 9px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.2);
+    line-height: 2em;
+    margin-bottom: 5px;
+}
+/* phan tu cha ko khop chieu cao vs phan tu con khi su dung float */
+.modal-body-row1:after { 
+    content: " "; 
+    display: block;
+    clear: both;
+} 
+.modal-body-row2 {
+    font-size: 14px;
+}
+.modal-body-row2 input {
+    margin: 2px 0; 
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    padding:0 0.5em;
+    line-height: 2em;
+}
+
+.modal-footer{
+    padding:20px;
+    padding-top: 0;
+    font-size: 14px;
+}
+.modal-footer button{
+    float:right;
+    background-color: #7db500;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.2);
+    line-height: 2em;
+    height: 2em;
+    padding: 0 1em;
+}
+.modal-footer div:after { 
+    content: " "; 
+    display: block;
+    clear: both;
+} 
