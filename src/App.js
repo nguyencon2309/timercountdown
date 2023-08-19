@@ -22,23 +22,25 @@ function App() {
         
         return (
           <div
+            className='div_timercount'
             key={index}
             style={{margin:'0 auto',position:'relative'}}
           >
             {a}
-            <span >
+            <span className='btn_remove'>
               <button
                 
                 onClick={() => handleDelete(index)}
                 style={{
                    display: 1 > index ? "none" : "inherit",
                    position:'absolute',
-                   bottom:'70px',right:'6px',background:'none',fontSize:'16px',
+                   bottom:'55px',right:'6px',background:'none',fontSize:'16px',
                    color:'red',
                    outline:'none',
                    border:'0'
 
                   }}
+                   
               >Remove &times;
               </button>
             </span>
