@@ -11,7 +11,7 @@ const CountTimer = ({ tt }) => {
     const [seconds, setSeconds] = useState(arr[2])
     const [start, setStart] = useState(false)
     const [edit, setEdit] = useState(false)
-    const [email, setEmail] = useState('email')
+    const [editValue, setEditValue] = useState([...arr])//lưu giá trị edit
     //const [time,setTime] = useState(hours*3600+minutes*60+seconds)
     const all = hours * 3600 + minutes * 60 + seconds
     const x = arr[0] * 3600 + arr[1] * 60 + arr[2]
@@ -71,6 +71,7 @@ const CountTimer = ({ tt }) => {
     const handleChange = (e) => {
 
     }
+    console.log(arr,editValue)
 
     return (
         <div className="counttimer">
@@ -109,7 +110,10 @@ const CountTimer = ({ tt }) => {
                             <button
                                 className="close-modal-btn"
 
-                                onClick={() => setEdit(!edit)}
+                                onClick={() => {
+                                    setEdit(!edit)
+                                    setEditValue([...arr])
+                                }}
                             >
                                 &times;
                             </button>
@@ -127,15 +131,15 @@ const CountTimer = ({ tt }) => {
                                 <div >
 
                                     <input type='number'
-                                        value={arr[0]}
+                                        value={editValue[0]}
                                         id='inputHour'
                                         onChange={
                                             e => {
                                                 var a = Number('0' + e.target.value);
                                                 a = Math.min(a, 99)
-                                                var nArr = arr;
+                                                var nArr = editValue;
                                                 nArr[0] = a
-                                                setArr([...nArr])
+                                                setEditValue([...nArr])
                                                 e.target.value = a
                                             }
 
@@ -153,14 +157,14 @@ const CountTimer = ({ tt }) => {
 
                                     <input type='number'
                                         id='inputMinute'
-                                        value={arr[1]}
+                                        value={editValue[1]}
                                         onChange={
                                             e => {
                                                 var a = Number('0' + e.target.value);
                                                 a = Math.min(a, 59)
-                                                var nArr = arr;
+                                                var nArr = editValue;
                                                 nArr[1] = a
-                                                setArr([...nArr])
+                                                setEditValue([...nArr])
                                                 e.target.value = a
                                             }
 
@@ -182,13 +186,13 @@ const CountTimer = ({ tt }) => {
                                 <div >
                                     <input type='number'
                                         id='inputSecond'
-                                        value={arr[2]}
+                                        value={editValue[2]}
                                         onChange={e => {
                                             var a = Number('0' + e.target.value);
                                             a = Math.min(a, 59)
-                                            var nArr = arr;
+                                            var nArr = editValue;
                                             nArr[2] = a
-                                            setArr([...nArr])
+                                            setEditValue([...nArr])
                                             e.target.value = a
                                         }
                                         }
@@ -232,9 +236,10 @@ const CountTimer = ({ tt }) => {
                             <div>
                                 <button
                                     onClick={() => {
-                                        setHours(arr[0]);
-                                        setMinutes(arr[1]);
-                                        setSeconds(arr[2]);
+                                        setArr([...editValue])
+                                        setHours(editValue[0]);
+                                        setMinutes(editValue[1]);
+                                        setSeconds(editValue[2]);
                                         setEdit(!edit)
                                         localStorage.setItem('arr', JSON.stringify(arr))
                                     }
