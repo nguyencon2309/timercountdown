@@ -4,15 +4,19 @@ import CountTimer from './CountTimer';
 
 function App() {
   const [listCT, setListCT] = useState([<CountTimer key="d" tt={1}/>])
-  const handleClick = () => {
-    //setListCT(listCT.concat(<CountTimer key={listCT.length}/>))
-    setListCT([...listCT, <CountTimer key={listCT.length} tt={listCT.length+1}/>])
-  }
+  
   const handleDelete = (id) => {
     const newlistCT = listCT
     newlistCT.splice(id, 1)
     setListCT([...newlistCT])
   }
+  
+  
+  const handleClick = () => {
+    //setListCT(listCT.concat(<CountTimer key={listCT.length}/>))
+    setListCT([...listCT, <CountTimer key={listCT.length} tt={listCT.length+1} btn={()=>handleDelete(listCT.length+1)}/>])
+  }
+  
   return (
     <div style={{width:'50%',margin:'0 auto'}}>
 
@@ -26,7 +30,7 @@ function App() {
             key={index}
             style={{margin:'0 auto',position:'relative'}}
           >
-            {a}
+            {a }
             <span className='btn_remove'>
               <button
                 

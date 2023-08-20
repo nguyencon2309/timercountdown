@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import './CountTimer.css'
 
 var [h, m, s] = [0, 2, 0]
-const CountTimer = ({ tt }) => {
+const CountTimer = ({ tt,btn }) => {
     const [id, setId] = useState("TimerId " + tt)
     const [arr, setArr] = useState(JSON.parse(localStorage.getItem('arr')) ?? [h, m, s])
     const [hours, setHours] = useState(arr[0])
@@ -71,7 +71,7 @@ const CountTimer = ({ tt }) => {
     const handleChange = (e) => {
 
     }
-    console.log(arr,editValue)
+    
 
     return (
         <div className="counttimer">
@@ -234,7 +234,12 @@ const CountTimer = ({ tt }) => {
 
                         <div className="modal-footer">
                             <div>
+                                {btn&&        
+                                <button 
+                                    className='delete-timercount'
+                                    onClick={btn}>Delete timer</button>}
                                 <button
+                                    className="done-timercount"
                                     onClick={() => {
                                         setArr([...editValue])
                                         setHours(editValue[0]);

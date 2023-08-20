@@ -1,3 +1,4 @@
+
 .counttimer{
     margin:40px 0 10px 0;
     
@@ -159,17 +160,43 @@
     font-size: 14px;
 }
 .modal-footer button{
-    float:right;
-    background-color: #7db500;
+   
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 4px;
     box-shadow: 0 2px 2px rgba(0,0,0,.2);
     line-height: 2em;
     height: 2em;
     padding: 0 1em;
+    color:#fff
 }
+
+.modal-footer .delete-timercount{
+    float: left;
+    background-color: #e54028;
+}
+.modal-footer .done-timercount{
+    float:right;
+    background-color: #7db500;
+}
+
 .modal-footer div:after { 
     content: " "; 
     display: block;
     clear: both;
 } 
+.modal_container label:hover,button:hover{
+    
+        cursor: pointer;
+    
+}
+
+
+
+
+
+
+body  button:hover,
+.delete-timercount:hover,.done-timercount:hover{
+    background-color: #000;
+    color:#fff;
+}
