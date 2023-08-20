@@ -23,7 +23,7 @@
     text-align: center;
     width: 64px;
     justify-content: center;
-    background-color: #17a69d;
+    
     border:0;
 }
 .f1-row:after{
@@ -199,4 +199,24 @@ body  button:hover,
 .delete-timercount:hover,.done-timercount:hover{
     background-color: #000;
     color:#fff;
+}
+
+.btn_Reset {
+    
+    background-color: #4387d0;
+    
+}
+.disabled {
+    background-color: #fff;
+    opacity: 0.4;
+    border: 1px solid #aaa!important;
+    color: #aaa!important;
+}
+.disabled:hover{
+    cursor: not-allowed;
+    background-color: #fff;
+    opacity: 0.4;
+    border: 1px solid #aaa;
+    color: #aaa!important;
+    
 }

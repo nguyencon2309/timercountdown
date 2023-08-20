@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import './CountTimer.css'
 
 var [h, m, s] = [0, 2, 0]
-const CountTimer = ({ tt,btn }) => {
+const CountTimer = ({ tt, btn }) => {
     const [id, setId] = useState("TimerId " + tt)
     const [arr, setArr] = useState(JSON.parse(localStorage.getItem('arr')) ?? [h, m, s])
     const [hours, setHours] = useState(arr[0])
@@ -12,6 +12,8 @@ const CountTimer = ({ tt,btn }) => {
     const [start, setStart] = useState(false)
     const [edit, setEdit] = useState(false)
     const [editValue, setEditValue] = useState([...arr])//lưu giá trị edit
+
+    const [buttonText, setButtonText] = useState('Start')
     //const [time,setTime] = useState(hours*3600+minutes*60+seconds)
     const all = hours * 3600 + minutes * 60 + seconds
     const x = arr[0] * 3600 + arr[1] * 60 + arr[2]
@@ -71,33 +73,47 @@ const CountTimer = ({ tt,btn }) => {
     const handleChange = (e) => {
 
     }
-    
+
 
     return (
         <div className="counttimer">
             <div className="f1-row">
                 <span>{setCountdown(hours, minutes, seconds)}</span>
 
+
+
                 <button
-                    onClick={() => { setStart(true); setEdit(false); }}
-                    disabled={start}>
-                    Start
+
+                    onClick={() => { setStart(!start); }}
+                    style={{
+                        backgroundColor:start ?'#fb647f':'#17a69d'
+                    }}
+                >
+                    {start ? 'Pause' : 'Start'}
+
                 </button>
-                <button onClick={() => setStart(false)} disabled={!start}>Stop</button>
-                <button onClick={handleReset}>Reset</button>
+                
+                <button
+                    className={start?'disabled':'btn_Reset'}
+                    
+                    
+                    onClick={handleReset}
+                    >
+                    Reset
+                </button>
             </div>
             <div className="f2-row">
                 {/* <input value={id} onChange={e=>setId(e.target.value)}/> */}
                 <span>{id}  </span><span></span>
                 (<span>{setCountdown(...arr)}</span>)
-                <button 
-                style={{background:'none',color:'blue',fontSize:'14px',border:'0'}}
-                onClick={() => setEdit(!edit)} disabled={start}>Edit</button>
+                <button
+                    style={{ background: 'none', color: 'blue', fontSize: '14px', border: '0' }}
+                    onClick={() => setEdit(!edit)} disabled={start}>Edit</button>
 
 
             </div>
             <div className="w3-light-grey" style={{ backgroundColor: 'gray', width: '100%', height: '24px' }}>
-                <div ref={inRef} id="myBar" className="w3-green" style={{ backgroundColor: 'green', height: '100%', width: '100%', float: 'left' }}></div>
+                <div ref={inRef} id="myBar" className="w3-green" style={{ backgroundColor: start?'#fb647f':'green', height: '100%', width: '100%', float: 'left' }}></div>
             </div>
             <hr></hr>
 
@@ -234,17 +250,17 @@ const CountTimer = ({ tt,btn }) => {
 
                         <div className="modal-footer">
                             <div>
-                                {btn&&        
-                                <button 
-                                    className='delete-timercount'
-                                    onClick={btn}>Delete timer</button>}
+                                {btn &&
+                                    <button
+                                        className='delete-timercount'
+                                        onClick={btn}>Delete timer</button>}
                                 <button
                                     className="done-timercount"
                                     onClick={() => {
-                                        setArr([...editValue])
-                                        setHours(editValue[0]);
-                                        setMinutes(editValue[1]);
-                                        setSeconds(editValue[2]);
+                                         setArr([...editValue])
+                                        // setHours(editValue[0]);
+                                        // setMinutes(editValue[1]);
+                                        // setSeconds(editValue[2]);
                                         setEdit(!edit)
                                         localStorage.setItem('arr', JSON.stringify(editValue))
                                     }
